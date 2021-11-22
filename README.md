@@ -1,5 +1,5 @@
 ## Welcome to GitHub Pages
 
 
-[Link](https://github.com/iee-ihu-gr-course1941/ADISE21_Sfouggarakides/blob/main/index.html)
+[Link](https://iee-ihu-gr-course1941.github.io/ADISE21_Sfouggarakides/)
 
