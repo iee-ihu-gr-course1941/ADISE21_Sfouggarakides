@@ -64,6 +64,8 @@ function handle_user($method, $b,$input) {
         set_user($b,$input);
     }
 }
+
+
 function current_color($token) {
 	
 	global $mysqli;

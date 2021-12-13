@@ -56,3 +56,11 @@ function handle_player($method, $p,$input) {
                  break;
 	}
 }
+function handle_status($method) {
+    if($method=='GET') {
+        show_status();
+    } else {
+        header('HTTP/1.1 405 Method Not Allowed');
+    }
+}
+?>
