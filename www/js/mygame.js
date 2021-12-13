@@ -1,5 +1,6 @@
 var me={};
 var game_status={};
+
 $(function () {
 
 	$('#login').click(login_to_game);
@@ -9,12 +10,8 @@ $(function () {
 
 
 function login_to_game() {
-	if($('#username').val()=='') {
-		alert('You have to set a username');
-		return;
-	}
-	var myTurn = $('#turn').val();
 
+	var myTurn = $('#turn').val();
 
 	$.ajax({url: "Moutzourhs.php/players/"+myTurn, 
 			method: 'PUT',
@@ -27,8 +24,11 @@ function login_to_game() {
 
 }
 
-function login_result(){
+function login_result(data){
     me = data[0];
+	$('#game_initializer').hide();
+	//update_info();
+	//game_status_update();
 }
 
 function error_msg(data,y,z,c){
@@ -39,6 +39,7 @@ function error_msg(data,y,z,c){
 
 function reset_game(){
 	$.ajax({url: "Moutzourhs.php/cards/", headers: {"X-Token": me.token}, method: 'POST',  success: fill_board_by_data });
+	$('#game_initializer').show(500);
 }
 
 function fill_board_by_data(){

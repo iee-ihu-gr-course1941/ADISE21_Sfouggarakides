@@ -24,7 +24,7 @@ function show_user($b) {
 function set_user($b,$input) {
 	if(!isset($input['username']) || $input['username']=='') {
 		header("HTTP/1.1 400 Bad Request");
-		print json_encode(['errormesg'=>"No username given."]);
+		print json_encode(['errormesg'=>"You have to set a username!!!"]);
 		exit;
 	}
 	$username=$input['username'];
@@ -74,7 +74,7 @@ function current_color($token) {
 	$st->execute();
 	$res = $st->get_result();
 	if($row=$res->fetch_assoc()) {
-		return($row['piece_color']);
+		return($row['player']);
 	}
 	return(null);
 }
