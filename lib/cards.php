@@ -13,7 +13,7 @@ function show_cards() {
 	print json_encode($res->fetch_all(MYSQLI_ASSOC), JSON_PRETTY_PRINT);
 }
 
-function reset_board() {
+function reset_cards() {
 	global $mysqli;
 	
 	$sql = 'call clean_board()';
