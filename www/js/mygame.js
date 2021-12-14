@@ -2,18 +2,16 @@ var me={};
 var game_status={};
 var timeout;
 $(function () {
-
 	$('#login').click(login_to_game);
 	$('#Game_reset').click(reset_game);
 });
 
-$(document).ready(function(){
-	$(".card").click(getCard);
-});
 
-function getCard(){
-	var id = $(this).id;
-	alert(id);
+function getCard(e){
+	if (game_status.p_turn==me.player){
+		alert(e.id);
+		//draw card do things
+	}
 }
 
 function login_to_game() {
@@ -62,7 +60,7 @@ function update_cards(data) {
 			m += '<td class="My_Cards" id="rectangle_'+i+'"><img class="card" id='+c+' src="images/'+c+'.png"></td>';	
 		}
 		else if (o.Player !=null){
-			op += '<td class="opCard" id="rectangle_'+i+'"><img class="card" id='+c+' src="images/blank.png" onclick="getCard()" ="SetDest(this.id)"></td>';	
+			op += '<td class="opCard" id="rectangle_'+i+'"><img class="card" id='+c+' src="images/blank.png" onclick="getCard(this)"></td>';	
 		}
 	}
 	
