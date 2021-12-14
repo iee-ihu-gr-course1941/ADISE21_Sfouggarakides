@@ -1,14 +1,20 @@
 var me={};
 var game_status={};
-
+var timeout;
 $(function () {
 
 	$('#login').click(login_to_game);
 	$('#Game_reset').click(reset_game);
-
 });
 
+$(document).ready(function(){
+	$(".card").click(getCard);
+});
 
+function getCard(){
+	var id = $(this).id;
+	alert(id);
+}
 
 function login_to_game() {
 
@@ -28,15 +34,55 @@ function login_to_game() {
 function login_result(data){
     me = data[0];
 	$('#game_initializer').hide(500);
+	Start_game();
 	update_info();
 	game_status_update();
 }
+
+
+function Start_game(){
+	$.ajax({url: "Moutzourhs.php/cards/", method: 'get', success: update_cards });
+}
+
+function update_cards(data) {
+
+	
+	var m = '<table id="Me">';
+	m += '<tr>';
+
+	var op = '<table id="Op">';
+	op += '<tr>';
+
+
+
+	for(var i=0; i<data.length;i++) {
+		var o = data[i];
+		var c = o.Number + '_' + o.Symbol;
+		if (o.Player == me.player){			
+			m += '<td class="My_Cards" id="rectangle_'+i+'"><img class="card" id='+c+' src="images/'+c+'.png"></td>';	
+		}
+		else if (o.Player !=null){
+			op += '<td class="opCard" id="rectangle_'+i+'"><img class="card" id='+c+' src="images/blank.png" onclick="getCard()" ="SetDest(this.id)"></td>';	
+		}
+	}
+	
+	m += '<tr>';
+	m += '</table>';
+
+	op += '<tr>';
+	op += '</table">';
+
+	op+= m;
+	$('#Game_board').html(op);	
+}
+
 
 function game_status_update() {
 	$.ajax({url: "Moutzourhs.php/status/", success: update_status,headers: {"X-Token": me.token} });
 }
 
 function update_status(data) {
+	Start_game();
 	var game_stat_old = game_status;
 	game_status=data[0];
 	update_info();
@@ -47,11 +93,11 @@ function update_status(data) {
 			//fill_board();
 		}
 		$('#move_div').show(500);
-		setTimeout(function() { game_status_update();}, 15000);
+		timeout = setTimeout(function() { game_status_update();}, 15000);
 	} else {
 		// must wait for something
 		$('#move_div').hide(500);
-		setTimeout(function() { game_status_update();}, 4000);
+		timeout = setTimeout(function() { game_status_update();}, 4000);
 	}
  	
 }
@@ -76,6 +122,8 @@ function update_info(){
 function reset_game(){
 	$.ajax({url: "Moutzourhs.php/cards/", headers: {"X-Token": me.token}, method: 'POST',  success: hide_cards });
 	$('#game_initializer').show(500);
+	$('#Game_board').html("");
+	clearTimeout(timeout);
 }
 
 function hide_cards(){
