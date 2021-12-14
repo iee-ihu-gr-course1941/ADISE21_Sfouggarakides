@@ -9,10 +9,27 @@ $(function () {
 
 function getCard(e){
 	if (game_status.p_turn==me.player){
-		alert(e.id);
+		
+		var a = e.id.trim().split(/[_]+/);
+
+		$.ajax({url: "Moutzourhs.php/cards/draw/"+a[0]+'/'+a[1], 
+			method: 'PUT',
+			dataType: "json",
+			contentType: 'application/json',
+			data: JSON.stringify( {p: me.player}),
+			headers: {"X-Token": me.token},
+			success: move_result});
+
 		//draw card do things
 	}
 }
+
+function move_result(data){
+	Start_game();
+	update_info();
+	game_status_update();
+}
+
 
 function login_to_game() {
 
@@ -84,19 +101,7 @@ function update_status(data) {
 	var game_stat_old = game_status;
 	game_status=data[0];
 	update_info();
-	if(game_status.p_turn==me.player &&  me.player!=null) {
-		x=0;
-		// do play
-		if(game_stat_old.p_turn!=me.myTurn) {
-			//fill_board();
-		}
-		$('#move_div').show(500);
-		timeout = setTimeout(function() { game_status_update();}, 15000);
-	} else {
-		// must wait for something
-		$('#move_div').hide(500);
-		timeout = setTimeout(function() { game_status_update();}, 4000);
-	}
+	timeout = setTimeout(function() { game_status_update();}, 1000);
  	
 }
 
@@ -111,6 +116,11 @@ function update_info(){
 	}else {
 		$('#game_info').html("I am Player: "+me.player+", my name is "+me.username +'<br>Token='+me.token+'<br>Game state: '+game_status.status+',  '+game_status.p_turn+' must play.');	
 	}
+
+	if (game_status.status == "not active"){
+		clearTimeout(timeout);
+		reset_game();
+	}
 	
 
 }
@@ -119,11 +129,13 @@ function update_info(){
 
 function reset_game(){
 	$.ajax({url: "Moutzourhs.php/cards/", headers: {"X-Token": me.token}, method: 'POST',  success: hide_cards });
-	$('#game_initializer').show(500);
-	$('#Game_board').html("");
-	clearTimeout(timeout);
+
 }
 
 function hide_cards(){
-
+	$('#game_initializer').show(500);
+	$('#Game_board').html("");
+	$('#game_info').html("");
+	clearTimeout(timeout);
+	
 }

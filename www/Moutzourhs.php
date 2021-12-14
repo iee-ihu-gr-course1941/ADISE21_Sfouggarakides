@@ -28,6 +28,14 @@ switch ($r=array_shift($request)) {
 	default:  header("HTTP/1.1 404 Not Found");
                         exit;
 }
+function handle_draw($method,$n,$s,$input){
+    if ($method=='PUT') {
+       take_card($input['p'],$n,$s);
+    } else {
+        header('HTTP/1.1 405 Method Not Allowed');
+    }
+
+}
 
 
 function handle_board($method) {

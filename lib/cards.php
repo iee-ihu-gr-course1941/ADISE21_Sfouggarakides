@@ -19,5 +19,13 @@ function reset_cards() {
 	$sql = 'call clean_board()';
 	$mysqli->query($sql);
 }
+function take_card($p,$n,$s){
+	global $mysqli;
+	$sql = 'call `take_card`(?,?,?);';
+	$st = $mysqli->prepare($sql);
+	$st->bind_param('ssi',$p,$s,$n);
+	$st->execute();
 
+	header('Content-type: application/json');
+}
 ?>
