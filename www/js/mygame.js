@@ -100,8 +100,10 @@ function update_status(data) {
 	Start_game();
 	var game_stat_old = game_status;
 	game_status=data[0];
+	timeout = setTimeout(function() { game_status_update();}, 2000);
+	
 	update_info();
-	timeout = setTimeout(function() { game_status_update();}, 1000);
+	
  	
 }
 
