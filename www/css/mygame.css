@@ -6,15 +6,15 @@ table TD {width: 4em; height:6em;border:10px solid white;text-align:center;}
     transform: scale(1.5); 
 }
 
-#copy {
-  position: fixed;
-  left: 50%;
-  bottom: 15px;
-  transform: translate(-50%, -50%);
-  margin: 0 auto; 
-  color: #A9A9A9;   
 
-}
+
+
+
+  #copy {
+    float :bottom;
+    margin: 0 auto; 
+    color: #A9A9A9;   
+  }
 
 
 #footer {
@@ -25,3 +25,15 @@ table TD {width: 4em; height:6em;border:10px solid white;text-align:center;}
 } 
 
 IMG.card {width:4em; height:6em;}
+
+
+@media only screen and (min-width: 500px)  {
+  #copy {
+    position: fixed;
+    left: 50%;
+    bottom: 15px;
+    transform: translate(-50%, -50%);
+    margin: 0 auto; 
+    color: #A9A9A9;   
+  }
+}
