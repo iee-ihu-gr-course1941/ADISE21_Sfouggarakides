@@ -63,9 +63,7 @@ function update_game_status() {
 	$st = $mysqli->prepare($sql);
 	$st->bind_param('ss',$new_status,$new_turn);
 	$st->execute();
-	
 		
-	
 }
 
 ?>

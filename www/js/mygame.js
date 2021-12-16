@@ -61,7 +61,6 @@ function Start_game(){
 
 function update_cards(data) {
 
-	
 	var m = '<table id="Me">';
 	m += '<tr>';
 
@@ -73,22 +72,26 @@ function update_cards(data) {
 	for(var i=0; i<data.length;i++) {
 		var o = data[i];
 		var c = o.Number + '_' + o.Symbol;
-		if (o.Player == me.player){			
+		if (o.Player == me.player){	
+
 			m += '<td class="My_Cards" id="rectangle_'+i+'"><img class="card" id='+c+' src="images/'+c+'.png"></td>';	
 		}
 		else if (o.Player !=null){
+
 			op += '<td class="opCard" id="rectangle_'+i+'"><img class="card" id='+c+' src="images/blank.png" onclick="getCard(this)"></td>';	
 		}
 	}
 	
-	m += '<tr>';
+	m += '</tr>';
 	m += '</table>';
 
-	op += '<tr>';
+	op += '</tr>';
 	op += '</table">';
 
 	op+= m;
+
 	$('#Game_board').html(op);	
+
 }
 
 
@@ -120,8 +123,23 @@ function update_info(){
 	}
 
 	if (game_status.status == "not active"){
+		game_status.status = null;
 		clearTimeout(timeout);
 		reset_game();
+
+
+	}
+
+	if (game_status.status == "ended"){
+		if (game_status.p_turn == me.player){
+			alert('You are the Winner!!!');
+		}else{
+			alert('You Lost, better luck next time !!!!');	
+					
+		}
+		clearTimeout(timeout);
+		reset_game();
+
 	}
 	
 
