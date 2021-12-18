@@ -21,7 +21,15 @@ table TD {width: 4em; height:6em;border:10px solid white;text-align:center;}
   margin: -200px 0 0 -125px
 }
 
-
+#Sfou{
+  text-align: center;
+  width: 650px;
+  height: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: -325px 0 0 -325px
+}
 
 .title{
   margin-bottom: 40px;
