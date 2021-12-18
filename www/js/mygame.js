@@ -1,17 +1,40 @@
 var me={};
 var game_status={};
 var timeout;
+var MyCards = [];
+var OpCads=[];
+var ispva = false;
+var flag = false;
+
 $(function () {
 	$('#login').click(login_to_game);
 	$('#Game_reset').click(reset_game);
+	$('#pvp').click(pvp);
+	$('#p').hide();
+	$('#pva').click(pva);
 });
+
+
+function pvp(){
+	$('#center').hide(100);
+	$('#p').show(200);
+}
+
+function pva(){
+	pvp();
+	ispva = true;
+
+}
+
+
+
 
 
 function getCard(e){
 	if (game_status.p_turn==me.player){
+		var card = OpCads[e.id];
+		var a = card.trim().split(/[_]+/);
 		
-		var a = e.id.trim().split(/[_]+/);
-
 		$.ajax({url: "Moutzourhs.php/cards/draw/"+a[0]+'/'+a[1], 
 			method: 'PUT',
 			dataType: "json",
@@ -20,7 +43,6 @@ function getCard(e){
 			headers: {"X-Token": me.token},
 			success: move_result});
 
-		//draw card do things
 	}
 }
 
@@ -32,34 +54,129 @@ function move_result(data){
 
 
 function login_to_game() {
-
 	var myTurn = $('#turn').val();
+	var us = $('#username').val();
+	logIn(us,myTurn);
+}
+
+function logIn(us,myTurn) {
 
 	$.ajax({url: "Moutzourhs.php/players/"+myTurn, 
 			method: 'PUT',
 			dataType: "json",
 			headers: {"X-Token": me.token},
 			contentType: 'application/json',
-			data: JSON.stringify( {username: $('#username').val(), turn: myTurn}),
+			data: JSON.stringify( {username: us, turn: myTurn}),
 			success: login_result,
             error: error_msg});	
-
 }
+
 
 function login_result(data){
-    me = data[0];
-	$('#game_initializer').hide(500);
-	Start_game();
-	update_info();
-	game_status_update();
+	if (ispva && !flag){
+		me = data[0];
+		$('#game_initializer').hide(500);
+		if (me.player == 'F'){
+			logIn('fake','S');
+			flag =true;
+		}
+		else {
+		logIn('fake','F');
+		flag =true;
+		}
+
+		Start_game();
+		update_Bot_info();
+		botGameUpdate();
+			
+	}
+	else if (!ispva){
+		me = data[0];
+		$('#game_initializer').hide(500);
+		Start_game();
+		update_info();
+		game_status_update();
+	}
+	
+
 }
+
+//Bot Plays
+function botGameUpdate() {
+	$.ajax({url: "Moutzourhs.php/status/", success: update_bot,headers: {"X-Token": me.token} });
+}
+
+function update_bot(data) {
+	Start_game();
+	var game_stat_old = game_status;
+	game_status=data[0];
+	timeout = setTimeout(function() { botGameUpdate();}, 1000);
+	update_Bot_info();
+}
+
+function update_Bot_info(){
+	if (game_status.p_turn==me.player){
+		$('#game_info').html('Its your turn');
+	}else if (game_status.p_turn != null){
+		$('#game_info').html('Wait for the computer');
+		var ran = Math.floor(Math.random()*MyCards.length - 1);
+		botRandomCard(ran);
+	}
+
+
+
+
+
+	if (game_status.status == "not active"){
+		game_status.status = null;
+		clearTimeout(timeout);
+		reset_game();
+
+
+	}
+	if (game_status.status == "ended"){
+		if (game_status.p_turn == me.player){
+			alert('You are the Winner!!!');
+		}else{
+			alert('You Lost, better luck next time !!!!');	
+			
+
+		}
+		clearTimeout(timeout);
+		reset_game();
+	}
+	
+}
+
+function botRandomCard(c){
+	var a = MyCards[c].trim().split(/[_]+/);
+	var b = 'F'
+	if (me.player = 'F') { b = 'S'};
+	$.ajax({url: "Moutzourhs.php/cards/draw/"+a[0]+'/'+a[1], 
+		method: 'PUT',
+		dataType: "json",
+		contentType: 'application/json',
+		data: JSON.stringify( {p: b}),
+		headers: {"X-Token": me.token},
+		success: botdraw});
+
+}
+function botdraw(data){
+	update_Bot_info();
+}
+
+//end
 
 
 function Start_game(){
 	$.ajax({url: "Moutzourhs.php/cards/", method: 'get', success: update_cards });
 }
 
+
 function update_cards(data) {
+	var myN = 0;
+	var OpN = 0;
+
 
 	var m = '<table id="Me">';
 	m += '<tr>';
@@ -73,12 +190,16 @@ function update_cards(data) {
 		var o = data[i];
 		var c = o.Number + '_' + o.Symbol;
 		if (o.Player == me.player){	
-
-			m += '<td class="My_Cards" id="rectangle_'+i+'"><img class="card" id='+c+' src="images/'+c+'.png"></td>';	
+			
+			m += '<td class="My_Cards" id="rectangle_'+i+'"><img class="card" id='+myN+' src="images/'+c+'.png"></td>';
+			MyCards[myN]= c;
+			myN++;
 		}
 		else if (o.Player !=null){
 
-			op += '<td class="opCard" id="rectangle_'+i+'"><img class="card" id='+c+' src="images/blank.png" onclick="getCard(this)"></td>';	
+			op += '<td class="opCard" id="rectangle_'+i+'"><img class="card" id='+OpN+' src="images/blank.png" onclick="getCard(this)"></td>';
+			OpCads[OpN] = c;
+			OpN++;	
 		}
 	}
 	
@@ -106,8 +227,7 @@ function update_status(data) {
 	timeout = setTimeout(function() { game_status_update();}, 2000);
 	
 	update_info();
-	
- 	
+
 }
 
 function error_msg(data,y,z,c){
@@ -129,7 +249,6 @@ function update_info(){
 
 
 	}
-
 	if (game_status.status == "ended"){
 		if (game_status.p_turn == me.player){
 			alert('You are the Winner!!!');
@@ -142,7 +261,6 @@ function update_info(){
 
 	}
 	
-
 }
 
 
@@ -153,9 +271,7 @@ function reset_game(){
 }
 
 function hide_cards(){
-	$('#game_initializer').show(500);
-	$('#Game_board').html("");
-	$('#game_info').html("");
-	clearTimeout(timeout);
+	
+	location.reload();
 	
 }

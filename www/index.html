@@ -15,27 +15,42 @@
 	<script src="js/mygame.js"></script>
   </head>
 <body>
-<h1>Μουτζούρης</h1>
-<div id='Game_board'>
-</div>
-<div id='game_initializer'>
-  <input id='username'> 
-  <select id='turn'>
-  <option value='F'>F</option>
-  <option value='S'>S</option>
-  </select>
-  <button id='login' class='btn btn-primary'>ΕΙΣΟΔΟΣ ΣΤΟ ΠΑΙΧΝΙΔΙ</button><br>
-  </div>
-  <div id='game_info'>
-  </div>
-  <div id='move_div'>
-  </div>
-<button id='Game_reset' class='btn btn-primary'>Reset</button><br>
+<div id = 'main'>
 
+    <div id ='center'>
+        <div class ='text-center'>
+            <h2 class= 'title'>Μουτζούρης</h2>
+            <p class= 'pl'>Play versus</p>
+                <div class="button-box col-lg-12">
+                    <button id='pvp' class='btn btn-primary'>Player</button>
+                    <button id='pva' class='btn btn-primary'>"AI"</button>
+                </div>
+        </div>
+    </div>
+
+    <div id ='p'>
+        <h1>Μουτζούρης</h1>
+        <div id='Game_board'>
+        </div>
+        <div id='game_initializer'>
+        <input id='username'> 
+        <select id='turn'>
+        <option value='F'>F</option>
+        <option value='S'>S</option>
+        </select>
+        <button id='login' class='btn btn-primary'>ΕΙΣΟΔΟΣ ΣΤΟ ΠΑΙΧΝΙΔΙ</button><br>
+        </div>
+        <div id='game_info'>
+        </div>
+        <div id='move_div'>
+        </div>
+    </div>
+</div>
+
+<button id='Game_reset' class='btn btn-primary'>Reset</button><br>
 <div id='copy'>
   Sfougarakides  - &copy;all rights reserved 
 </div>
-
 <div id='footer'>
   Alpha ver 0.2.4.999
 </div>
