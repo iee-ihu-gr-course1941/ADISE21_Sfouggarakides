@@ -5,11 +5,12 @@ require_once "db_upass.php";
 
 $user=$DB_USER;
 $pass=$DB_PASS;
+$path=$DB_DIR
 
 
 
 if(gethostname()=='users.iee.ihu.gr') {
-	$mysqli = new mysqli($host, $user, $pass, $db,null,'/home/student/it/2016/it164828/mysql/run/mysql.sock');
+	$mysqli = new mysqli($host, $user, $pass, $db,null,$path);
 } else {
 		$pass=null;
         $mysqli = new mysqli($host, $user, $pass, $db);
