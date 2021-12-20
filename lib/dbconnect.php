@@ -5,7 +5,7 @@ require_once "db_upass.php";
 
 $user=$DB_USER;
 $pass=$DB_PASS;
-$path=$DB_DIR
+$path=$DB_DIR;
 
 
 
