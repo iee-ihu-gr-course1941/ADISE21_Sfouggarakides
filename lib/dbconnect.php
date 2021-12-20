@@ -12,7 +12,7 @@ $path=$DB_DIR;
 if(gethostname()=='users.iee.ihu.gr') {
 	$mysqli = new mysqli($host, $user, $pass, $db,null,$path);
 } else {
-		$pass=null;
+    $pass=$DB_passLocal;
         $mysqli = new mysqli($host, $user, $pass, $db);
 }
 
