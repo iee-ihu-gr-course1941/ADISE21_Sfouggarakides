@@ -14,7 +14,12 @@
     <script src="bootstrap/bootstrap.min.js"></script>
 	<script src="js/mygame.js"></script>
   </head>
-<body>
+<body style="overflow: hidden;">
+
+    <div class="background-image">
+
+    </div>
+
 <div id = 'main'>
     
     <div id ='center'>
@@ -30,14 +35,15 @@
     </div>
 
     <div id ='p'>
-        <h1>Μουτζούρης</h1>
+        <h1 id="information">Μουτζούρης</h1>
         <div id='Game_board'>
         </div>
         <div id='game_initializer'>
-        <input id='username'> 
+        <input for="position" id='username' placeholder="Your username..."> 
+        <label id="position">Starting : </label>
         <select id='turn'>
-        <option value='F'>F</option>
-        <option value='S'>S</option>
+        <option value='F'>First</option>
+        <option value='S'>Second</option>
         </select>
         <button id='login' class='btn btn-primary'>ΕΙΣΟΔΟΣ ΣΤΟ ΠΑΙΧΝΙΔΙ</button><br>
         </div>
