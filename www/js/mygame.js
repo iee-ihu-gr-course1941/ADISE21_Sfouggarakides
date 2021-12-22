@@ -7,17 +7,14 @@ var ispva = false;
 var flag = false;
 
 $(function () {
-	$('#login').click(login_to_game);
 	$('#Game_reset').click(reset_game);
 	$('#pvp').click(pvp);
-	$('#p').hide();
 	$('#pva').click(pva);
 });
 
 
 function pvp(){
-	$('#center').hide(100);
-	$('#p').show(200);
+	$('#main').load("pick.html");
 }
 
 function pva(){
@@ -75,7 +72,7 @@ function logIn(us,myTurn) {
 function login_result(data){
 	if (ispva && !flag){
 		me = data[0];
-		$('#game_initializer').hide(500);
+		$('#p').hide(500);
 		if (me.player == 'F'){
 			logIn('fake','S');
 			flag =true;
@@ -92,7 +89,7 @@ function login_result(data){
 	}
 	else if (!ispva){
 		me = data[0];
-		$('#game_initializer').hide(500);
+		$('#p').hide(500);
 		Start_game();
 		update_info();
 		game_status_update();

@@ -4,9 +4,15 @@
   font-family: Monaco;
  }
 
+ table{ margin-left: auto; margin-right: auto; margin-top: auto;    margin-bottom:200px;}
+ table TD {width: 4em; height:6em;border:10px solid transparent;text-align:center;} 
+ 
+#Game_board {
+  position: fixed;
+  top: 0px;
+  z-index: 1000
+}
 
-table{ margin-left: auto; margin-right: auto; margin-top: auto;    margin-bottom:200px;}
-table TD {width: 4em; height:6em;border:10px solid white;text-align:center;}
 .opCard:hover {
     padding-left: 15px;
     padding-right: 15px;
@@ -24,6 +30,7 @@ table TD {width: 4em; height:6em;border:10px solid white;text-align:center;}
   top: 50%;
   left: 50%;
   margin: -200px 0 0 -175px
+
 }
 
 #Sfou{
