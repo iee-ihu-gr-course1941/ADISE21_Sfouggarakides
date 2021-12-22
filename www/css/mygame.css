@@ -23,7 +23,7 @@ table TD {width: 4em; height:6em;border:10px solid white;text-align:center;}
   position: fixed;
   top: 50%;
   left: 50%;
-  margin: -200px 0 0 -200px
+  margin: -200px 0 0 -175px
 }
 
 #Sfou{
@@ -131,8 +131,8 @@ IMG.card {width:4em; height:6em;}
 
 #p{
  text-align:center;
- margin: -200px 0 0 -200px;
- width:350px;
+ margin: -200px 0 0 -178px;
+ width:356px;
  height: 500px;
  border: none;
  position: fixed;

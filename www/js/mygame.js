@@ -131,8 +131,6 @@ function update_Bot_info(){
 		game_status.status = null;
 		clearTimeout(timeout);
 		reset_game();
-
-
 	}
 	if (game_status.status == "ended"){
 		if (game_status.p_turn == me.player){
@@ -141,19 +139,24 @@ function update_Bot_info(){
 				text: "Good Job!",
 				icon: "success",
 				button: "Bye :)",
+			  }).then(() => {
+				reset_game();
 			  });			
 			  // alert('You are the Winner!!!');
 		}else{
 			// alert('You Lost, better luck next time !!!!');	
+			
 			swal({
 				title: "You Lost",
 				text: "Maybe another time..",
 				icon: "error",
 				button: "Bye!",
+			  }).then(() => {
+				reset_game();
 			  });
-			}
+		}
 		clearTimeout(timeout);
-		setTimeout(reset_game,10000);
+		
 	}
 	
 }
@@ -267,6 +270,8 @@ function update_info(){
 				text: "Good Job!",
 				icon: "success",
 				button: "Bye :)",
+			  }).then(() => {
+				reset_game();
 			  });
 		}else{
 			// alert('You Lost, better luck next time !!!!');
@@ -275,10 +280,11 @@ function update_info(){
 				text: "Maybe another time..",
 				icon: "error",
 				button: "Bye!",
-			  });	
+			  }).then(() => {
+				reset_game();
+			  });
 		}
 		clearTimeout(timeout);
-		setTimeout(reset_game,10000);
 
 	}
 	
