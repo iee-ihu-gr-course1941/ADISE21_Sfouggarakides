@@ -10,9 +10,13 @@
 #Game_board {
   position: fixed;
   top: 0px;
-  z-index: 1000
+  z-index: 1000;
+  margin: 100px 0 0 600px;
 }
 
+/* .swal2{
+
+} */
 .opCard:hover {
     padding-left: 15px;
     padding-right: 15px;
@@ -24,12 +28,12 @@
   background-position: center;
   background-repeat: no-repeat;
   width:350px;
-  height: 423px;
+  height: 423px; 
   border-style: none;
   position: fixed;
   top: 50%;
   left: 50%;
-  margin: -200px 0 0 -175px
+  margin: -200px 0 0 -175px;
 
 }
 
@@ -131,7 +135,7 @@ IMG.card {width:4em; height:6em;}
 
 .background-image{
   background-image:url(../images/greenBack.png);
-  background-size: cover;
+  background-size:cover;
   background-repeat:no-repeat;
   height: 100vh;
 }
@@ -178,7 +182,7 @@ IMG.card {width:4em; height:6em;}
   font-size: larger;
   font-family:Arial, Helvetica, sans-serif;
   font-weight: bold;
-  background-color: rgba(104, 113, 192, 0.575);
+  background-color: rgba(102, 62, 62, 0.829);
   color: rgb(11, 10, 75);
   border: 2px solid rgb(13, 17, 78);
 }
@@ -195,7 +199,7 @@ font-family:'Courier New', Courier, monospace;
 width:150px ;
 margin:0px 0px 0px 40px;
 text-decoration:underline;
-background-color: rgba(104, 113, 192, 0.575);
+background-color: rgba(102, 62, 62, 0.829);
 color: rgb(11, 10, 75);
 border: 2px solid rgb(13, 17, 78);
 }
@@ -204,7 +208,7 @@ border: 2px solid rgb(13, 17, 78);
   font-family:Arial, Helvetica, sans-serif;
   margin:20px;
   font-weight: bold;
-  background-color: rgba(104, 113, 192, 0.575);
+  background-color: rgba(102, 62, 62, 0.829);
   color: rgb(11, 10, 75);
   border: 2px solid rgb(13, 17, 78);
 }
