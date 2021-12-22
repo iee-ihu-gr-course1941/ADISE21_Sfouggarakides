@@ -15,9 +15,9 @@
  
 #Game_board {
   position: fixed;
-  margin: -300px 0 0;
+  
   width: 100%;
-  top: 50%;
+  top: 20%;
 }
 
 .opCard:hover {
