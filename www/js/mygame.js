@@ -27,7 +27,7 @@ function getCard(e){
 	if (game_status.p_turn==me.player){
 		var card = OpCads[e.id];
 		var a = card.trim().split(/[_]+/);
-		swal2.fire({
+		swal.fire({
 			title: "You Chose: ",
 			text: "Keepgoing",
 			imageUrl:'images/'+card+'.png',
