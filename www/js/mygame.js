@@ -242,7 +242,10 @@ function update_status(data) {
 
 function error_msg(data,y,z,c){
     var x = data.responseJSON;
-    alert(x.errormesg);
+    swal.fire({title:'Warning!!',
+			text: x.errormesg,
+			icon: 'warning',
+		});
 }
 
 function update_info(){
