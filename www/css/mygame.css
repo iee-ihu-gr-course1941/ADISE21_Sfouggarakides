@@ -9,15 +9,24 @@
   height:6em;
 }
 
-
  table{ margin-left: auto; margin-right: auto; margin-top: auto;    margin-bottom:200px;}
  table TD {width: 4em; height:6em;border:10px solid transparent;text-align:center;} 
- 
+
 #Game_board {
   position: fixed;
-  
   width: 100%;
   top: 20%;
+}
+
+#game_info{
+  position: fixed;
+  width: 100%;
+  top: 85%;
+  text-align: center;
+  font-size: larger;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: crimson;
+  font-weight: bold;
 }
 
 .opCard:hover {
@@ -119,13 +128,11 @@
   border: 4px solid rgb(13, 17, 78);
 }
 
-
 #copy {
   float :bottom;
   margin: 0 auto; 
   color: #b1b1b1;   
 }
-
 
 #footer {
   position: fixed;
