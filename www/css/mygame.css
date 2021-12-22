@@ -4,19 +4,22 @@
   font-family: Monaco;
  }
 
+.pickedcard{
+  width:4em; 
+  height:6em;
+}
+
+
  table{ margin-left: auto; margin-right: auto; margin-top: auto;    margin-bottom:200px;}
  table TD {width: 4em; height:6em;border:10px solid transparent;text-align:center;} 
  
 #Game_board {
   position: fixed;
-  top: 0px;
-  z-index: 1000;
-  margin: 100px 0 0 600px;
+  margin: -300px 0 0;
+  width: 100%;
+  top: 50%;
 }
 
-/* .swal2{
-
-} */
 .opCard:hover {
     padding-left: 15px;
     padding-right: 15px;
@@ -131,7 +134,10 @@
   color: #b1b1b1;    
 } 
 
-IMG.card {width:4em; height:6em;}
+IMG.card {
+  width:4em; 
+  height:6em;
+}
 
 .background-image{
   background-image:url(../images/greenBack.png);
