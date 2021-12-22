@@ -23,23 +23,27 @@ function pva(){
 
 }
 
-
-
-
-
 function getCard(e){
 	if (game_status.p_turn==me.player){
 		var card = OpCads[e.id];
 		var a = card.trim().split(/[_]+/);
-		
-		$.ajax({url: "Moutzourhs.php/cards/draw/"+a[0]+'/'+a[1], 
-			method: 'PUT',
-			dataType: "json",
-			contentType: 'application/json',
-			data: JSON.stringify( {p: me.player}),
-			headers: {"X-Token": me.token},
-			success: move_result});
-
+		swal2.fire({
+			title: "You Chose: ",
+			text: "Keepgoing",
+			imageUrl:'images/'+card+'.png',
+			imageWidth: 100,
+  			imageHeight: 150,
+			button: "Close",
+		})
+			.then(() => {
+				$.ajax({url: "Moutzourhs.php/cards/draw/"+a[0]+'/'+a[1], 
+				method: 'PUT',
+				dataType: "json",
+				contentType: 'application/json',
+				data: JSON.stringify( {p: me.player}),
+				headers: {"X-Token": me.token},
+				success: move_result});
+			});
 	}
 }
 
@@ -131,7 +135,7 @@ function update_Bot_info(){
 	}
 	if (game_status.status == "ended"){
 		if (game_status.p_turn == me.player){
-			swal({
+			swal.fire({
 				title: "You Won!",
 				text: "Good Job!",
 				icon: "success",
@@ -143,7 +147,7 @@ function update_Bot_info(){
 		}else{
 			// alert('You Lost, better luck next time !!!!');	
 			
-			swal({
+			swal.fire({
 				title: "You Lost",
 				text: "Maybe another time..",
 				icon: "error",
@@ -262,7 +266,7 @@ function update_info(){
 	if (game_status.status == "ended"){
 		if (game_status.p_turn == me.player){
 			// alert('You are the Winner!!!');
-			swal({
+			swal.fire({
 				title: "You Won!",
 				text: "Good Job!",
 				icon: "success",
@@ -272,7 +276,7 @@ function update_info(){
 			  });
 		}else{
 			// alert('You Lost, better luck next time !!!!');
-			swal({
+			swal.fire({
 				title: "You Lost",
 				text: "Maybe another time..",
 				icon: "error",
