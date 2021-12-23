@@ -81,7 +81,8 @@ function login_result(data){
 		logIn('fake','F');
 		flag =true;
 		}
-
+		
+		document.getElementById("background-floor").style.background = "url('images/woodfloor1.png') no-repeat center";
 		Start_game();
 		update_Bot_info();
 		botGameUpdate();

@@ -12,6 +12,17 @@
  table{ margin-left: auto; margin-right: auto; margin-top: auto;    margin-bottom:200px;}
  table TD {width: 4em; height:6em;border:10px solid transparent;text-align:center;} 
 
+ #background-floor{
+  background-size: 50%;
+  padding: 20em;
+}
+
+/* Gia background-floor deuteros tropos. Den exei keno sto panw meros*/
+/* background-size: 100%;
+width: 100%;
+height: 570px;
+top: 200px; */
+
 #Game_board {
   position: fixed;
   width: 100%;
