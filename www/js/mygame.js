@@ -131,10 +131,11 @@ function update_Bot_info(){
 		reset_game();
 	}
 	if (game_status.status == "ended"){
+		var name = document.getElementById("username").value;
 		if (game_status.p_turn == me.player){
 			swal.fire({
 				title: "You Won!",
-				text: "Good Job!",
+				text: "Congratulations "+name+"!",
 				icon: "success",
 				button: "Bye :)",
 			  }).then(() => {
@@ -146,7 +147,7 @@ function update_Bot_info(){
 			
 			swal.fire({
 				title: "You Lost",
-				text: "Maybe another time..",
+				text: "Its Ok. Maybe another time "+name+".",
 				icon: "error",
 				button: "Bye!",
 			  }).then(() => {
@@ -264,11 +265,12 @@ function update_info(){
 
 	}
 	if (game_status.status == "ended"){
+		var name = document.getElementById("username").value;
 		if (game_status.p_turn == me.player){
 			// alert('You are the Winner!!!');
 			swal.fire({
 				title: "You Won!",
-				text: "Good Job!",
+				text: "Congratulations "+name+"!",
 				icon: "success",
 				button: "Bye :)",
 			  }).then(() => {
@@ -278,7 +280,7 @@ function update_info(){
 			// alert('You Lost, better luck next time !!!!');
 			swal.fire({
 				title: "You Lost",
-				text: "Maybe another time..",
+				text: "Its Ok. Maybe another time "+name+".",
 				icon: "error",
 				button: "Bye!",
 			  }).then(() => {
