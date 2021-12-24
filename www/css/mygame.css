@@ -50,9 +50,9 @@ top: 200px; */
   background-image: url(../images/king.jpg);
   background-position:center;
   background-repeat: no-repeat;
-  width:auto;
-  height:auto;
-  border-style:groove;
+  width:350px;
+  height: 423px;
+  border-style:none;
   position:fixed;
   top: 50%;
   left: 50%;

@@ -116,11 +116,10 @@ function update_bot(data) {
 }
 
 function update_Bot_info(){
-	var name = document.getElementById("username").value;
-	if (game_status.p_turn==me.player){
+	if (game_status.p_turn==me.username){
 		$('#game_info').html(name+' its your turn');
 	}else if (game_status.p_turn != null){
-		$('#game_info').html('Please '+name+' wait for the computer');
+		$('#game_info').html('Please '+me.username+' wait for the computer');
 		var ran = Math.floor(Math.random()*MyCards.length - 1);
 		botRandomCard(ran);
 	}
@@ -278,12 +277,11 @@ function update_info(){
 
 	}
 	if (game_status.status == "ended"){
-		var name = document.getElementById("username").value;
 		if (game_status.p_turn == me.player){
 			// alert('You are the Winner!!!');
 			swal.fire({
 				title: "You Won!",
-				text: "Congratulations "+name+"!",
+				text: "Congratulations "+me.username+"!",
 				icon: "success",
 				confirmButtonColor: '#25a342',
 				confirmButtonText: "Bye :)",
@@ -294,7 +292,7 @@ function update_info(){
 			// alert('You Lost, better luck next time !!!!');
 			swal.fire({
 				title: "You Lost",
-				text: "Its Ok. Maybe another time "+name+".",
+				text: "Its Ok. Maybe another time "+me.username+".",
 				icon: "error",
 				confirmButtonColor: '#25a342',
 				confirmButtonText: "Bye!",
