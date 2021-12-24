@@ -135,10 +135,11 @@ function update_Bot_info(){
 		reset_game();
 	}
 	if (game_status.status == "ended"){
+		var name = document.getElementById("username").value;
 		if (game_status.p_turn == me.player){
 			swal.fire({
 				title: "You Won!",
-				text: "Congratulations "+me.username+"!",
+				text: "Congratulations "+name+"!",
 				icon: "success",
 				confirmButtonColor: '#25a342',
 				confirmButtonText: "Bye :)",
@@ -151,7 +152,7 @@ function update_Bot_info(){
 			
 			swal.fire({
 				title: "You Lost",
-				text: "Its Ok. Maybe another time "+me.username+".",
+				text: "Its Ok. Maybe another time "+name+".",
 				icon: "error",
 				confirmButtonColor: '#25a342',
 				confirmButtonText: "Bye :)",
