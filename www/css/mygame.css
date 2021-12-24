@@ -48,12 +48,12 @@ top: 200px; */
 
 #center{
   background-image: url(../images/kings-cards.jpg);
-  background-position: center;
+  background-position:center;
   background-repeat: no-repeat;
-  width:fit-content;
-  height:fit-content; 
-  border-style: none;
-  position: fixed;
+  width:auto;
+  height:auto;
+  border-style:groove;
+  position:fixed;
   top: 50%;
   left: 50%;
   margin: -200px 0 0 -175px;
@@ -211,7 +211,7 @@ IMG.card {
   border: 2px solid rgb(13, 17, 78);
 }
 
-::placeholder{
+#placeholder{
   color: rgb(11, 10, 75);
   text-decoration: underline;
 }
