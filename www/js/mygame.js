@@ -29,7 +29,10 @@ function getCard(e){
 		var a = card.trim().split(/[_]+/);
 		swal.fire({
 			title: "You picked: </br><img class='pickedcard' src='./images/"+card+".png'>",
-			button: "Close",
+			color:'#8dadff',
+			confirmButtonColor: '#8dadff',
+  			confirmButtonText: 'Close',
+			background: '#fff url(images/alert_back.png) no-repeat',
 		})
 			.then(() => {
 				$.ajax({url: "Moutzourhs.php/cards/draw/"+a[0]+'/'+a[1], 
@@ -113,10 +116,11 @@ function update_bot(data) {
 }
 
 function update_Bot_info(){
+	var name = document.getElementById("username").value;
 	if (game_status.p_turn==me.player){
-		$('#game_info').html('Its your turn');
+		$('#game_info').html(name+' its your turn');
 	}else if (game_status.p_turn != null){
-		$('#game_info').html('Wait for the computer');
+		$('#game_info').html('Please '+name+' wait for the computer');
 		var ran = Math.floor(Math.random()*MyCards.length - 1);
 		botRandomCard(ran);
 	}
@@ -137,7 +141,8 @@ function update_Bot_info(){
 				title: "You Won!",
 				text: "Congratulations "+name+"!",
 				icon: "success",
-				button: "Bye :)",
+				confirmButtonColor: '#25a342',
+				confirmButtonText: "Bye :)",
 			  }).then(() => {
 				reset_game();
 			  });			
@@ -149,7 +154,8 @@ function update_Bot_info(){
 				title: "You Lost",
 				text: "Its Ok. Maybe another time "+name+".",
 				icon: "error",
-				button: "Bye!",
+				confirmButtonColor: '#25a342',
+				confirmButtonText: "Bye :)",
 			  }).then(() => {
 				reset_game();
 			  });
@@ -247,7 +253,15 @@ function error_msg(data,y,z,c){
     swal.fire({title:'Warning!!',
 			text: x.errormesg,
 			icon: 'warning',
-		});
+			confirmButtonColor: '#d5bb6e',
+			confirmButtonText: 'Main Menu',
+			showDenyButton: true,
+			denyButtonText: `Try again!`
+		}).then((result) => {
+			/* Read more about isConfirmed, isDenied below */
+			if (result.isConfirmed) {
+				reset_game();} 
+			});
 }
 
 function update_info(){
@@ -272,7 +286,8 @@ function update_info(){
 				title: "You Won!",
 				text: "Congratulations "+name+"!",
 				icon: "success",
-				button: "Bye :)",
+				confirmButtonColor: '#25a342',
+				confirmButtonText: "Bye :)",
 			  }).then(() => {
 				reset_game();
 			  });
@@ -282,7 +297,8 @@ function update_info(){
 				title: "You Lost",
 				text: "Its Ok. Maybe another time "+name+".",
 				icon: "error",
-				button: "Bye!",
+				confirmButtonColor: '#25a342',
+				confirmButtonText: "Bye!",
 			  }).then(() => {
 				reset_game();
 			  });
