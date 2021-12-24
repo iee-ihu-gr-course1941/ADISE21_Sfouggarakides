@@ -158,7 +158,7 @@ IMG.card {
 }
 
 .background-image{
-  background-image:;
+  background-image:url(../images/table-cardgame.jpg);
   background-size:cover;
   background-repeat:no-repeat;
   height: 100vh;
