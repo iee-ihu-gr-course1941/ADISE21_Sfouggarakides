@@ -15,7 +15,6 @@
  #background-floor{
   background-size: 50%;
   padding: 20em;
-  border-radius: 50%;
 }
 
 /* Gia background-floor deuteros tropos. Den exei keno sto panw meros*/
@@ -36,8 +35,9 @@ top: 200px; */
   top: 85%;
   text-align: center;
   font-size: larger;
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  color: #05386B;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: crimson;
+  font-weight: bold;
 }
 
 .opCard:hover {
