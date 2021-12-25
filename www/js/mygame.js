@@ -117,7 +117,7 @@ function update_bot(data) {
 
 function update_Bot_info(){
 	if (game_status.p_turn==me.username){
-		$('#game_info').html(name+' its your turn');
+		$('#game_info').html(me.username+' its your turn');
 	}else if (game_status.p_turn != null){
 		$('#game_info').html('Please '+me.username+' wait for the computer');
 		var ran = Math.floor(Math.random()*MyCards.length - 1);
@@ -141,6 +141,7 @@ function update_Bot_info(){
 				icon: "success",
 				confirmButtonColor: '#25a342',
 				confirmButtonText: "Bye :)",
+				background: '#fff url(images/confetti.png) no-repeat center',
 			  }).then(() => {
 				reset_game();
 			  });			
@@ -254,12 +255,20 @@ function error_msg(data,y,z,c){
 			confirmButtonColor: '#d5bb6e',
 			confirmButtonText: 'Main Menu',
 			showDenyButton: true,
-			denyButtonText: `Try again!`
+			denyButtonText: `Try again!`,
+			// showCancelButton: true,
+  			// cancelButtonText: 'Reset!',
+			// cancelButtonColor: '#4a9f7e',
 		}).then((result) => {
-			/* Read more about isConfirmed, isDenied below */
-			if (result.isConfirmed) {
-				reset_game();} 
-			});
+			// Read more about isConfirmed, isDenied below
+			if (result.isConfirmed)
+			reset_game()
+			// Reset button - stay in login(--need fix--)
+			// 	else if (result.dismiss) {
+			// 	reset_game();
+			// 	pvp();
+			// 	}
+		});
 }
 
 function update_info(){
