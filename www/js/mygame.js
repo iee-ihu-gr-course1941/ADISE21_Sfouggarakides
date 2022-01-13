@@ -253,22 +253,14 @@ function error_msg(data,y,z,c){
     swal.fire({title:'Warning!!',
 			text: x.errormesg,
 			icon: 'warning',
-			confirmButtonColor: '#d5bb6e',
-			confirmButtonText: 'Main Menu',
 			showDenyButton: true,
 			denyButtonText: `Try again!`,
-			// showCancelButton: true,
-  			// cancelButtonText: 'Reset!',
-			// cancelButtonColor: '#4a9f7e',
+			
 		}).then((result) => {
-			// Read more about isConfirmed, isDenied below
+			
 			if (result.isConfirmed)
 			reset_game()
-			// Reset button - stay in login(--need fix--)
-			// 	else if (result.dismiss) {
-			// 	reset_game();
-			// 	pvp();
-			// 	}
+			
 		});
 }
 
