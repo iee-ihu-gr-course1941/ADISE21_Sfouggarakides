@@ -116,10 +116,11 @@ function update_bot(data) {
 }
 
 function update_Bot_info(){
-	if (game_status.p_turn==me.username){
-		$('#game_info').html(me.username+' its your turn');
+	var name = document.getElementById("username").value;
+	if (game_status.p_turn==me.player){
+		$('#game_info').html(name+' its your turn');
 	}else if (game_status.p_turn != null){
-		$('#game_info').html('Please '+me.username+' wait for the computer');
+		$('#game_info').html('Please '+name+' wait for the computer');
 		var ran = Math.floor(Math.random()*MyCards.length - 1);
 		botRandomCard(ran);
 	}
