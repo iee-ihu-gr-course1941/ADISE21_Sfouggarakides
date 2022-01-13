@@ -251,17 +251,21 @@ function update_status(data) {
 function error_msg(data,y,z,c){
     var x = data.responseJSON;
     swal.fire({title:'Warning!!',
-			text: x.errormesg,
-			icon: 'warning',
-			showDenyButton: true,
-			denyButtonText: `Try again!`,
-			
-		}).then((result) => {
-			
-			if (result.isConfirmed)
-			reset_game()
-			
-		});
+            text: x.errormesg,
+            icon: 'warning',
+            showConfirmButton: false,
+            showDenyButton: true,
+            denyButtonText: `Try again!`,
+        }).then((result) => {
+            var myTurn = $('#turn').val();
+            var us = $('#username').val();
+            if (us != ''){
+                $('#turn').val('S');
+                if (myTurn == 'S'){
+                    $('#turn').val('F');
+                }
+            }
+        });
 }
 
 function update_info(){
