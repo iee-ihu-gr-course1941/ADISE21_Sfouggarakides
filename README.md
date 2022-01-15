@@ -3,7 +3,8 @@
    - Οδηγίες Εγκατάστασης
 
  - Πίνακες SQL 
-             |Cards|
+            ***
+            Cards
      Number | Symbol | Player
      --- | --- | ---
     10 |H |F
