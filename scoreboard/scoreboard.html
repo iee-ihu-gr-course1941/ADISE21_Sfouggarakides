@@ -1,0 +1,40 @@
+<!-- (A) ADD NEW SCORE -->
+<form id="scoreForm" method="post" target="_self">
+    <label for="home">Home:</label>
+    <input type="number" name="home" required/>
+    <label for="away">Away:</label>
+    <input type="number" name="away" required/>
+    <label for="comment">Comment:</label>
+    <input type="text" name="comment"/>
+    <input type="submit" value="Save"/>
+  </form>
+   
+  <!-- (B) CURRENT HISTORY -->
+  <div id="scoreWrap"><?php
+  // (B1) INIT
+  require "2-core.php";
+  // GAME ID IS FIXED TO 1 FOR THIS DEMO (TO KEEP THINGS SIMPLE)
+  $gameID = 1;
+   
+  // (B2) ADD SCORE
+  if (isset($_POST["home"])) {
+    if ($_SCORE->add($gameID, $_POST["home"], $_POST["away"], $_POST["comment"])) {
+      echo "<div>SCORE ADDED</div>";
+    } else {
+      echo "<div>$_SCORE->error</div>";
+    }
+  }
+   
+  // (B3) GET + DISPLAY SCORES
+  $score = $_SCORE->get($gameID);
+  if (count($score)>0) { foreach ($score as $s) { ?>
+  <div class="scoreRow">
+    <div class="scoreTime"><?=$s["game_time"]?></div>
+    <div class="scorePoints">
+      <span class="scoreHome">HOME: <?=$s["score_home"]?></span> | 
+      <span class="scoreAway">AWAY: <?=$s["score_away"]?></span>
+    </div>
+    <div class="scoreComment">COMMENT: <?=$s["score_comment"]?></div>
+  </div>
+  <?php }} ?>
+  </div>

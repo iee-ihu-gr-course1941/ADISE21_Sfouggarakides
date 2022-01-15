@@ -246,4 +246,59 @@ border: 2px solid rgb(13, 17, 78);
     margin: 0 auto; 
     color: #A9A9A9;   
   }
+
+  .scoreboard{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 250px;
+    font-family: 'Quicksand',sans-serif;
+  }
+
+  .scoreboard__name,
+  .scoreboard__score{
+    padding: 10px;
+    text-align: center;
+  }
+
+  .scoreboard__name{
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+
+  }
+
+  .scoreboard__name--one{
+    color: #009578;
+
+  }
+  
+  .scoreboard__name--two{
+    color: #2d0095;
+    
+  }
+
+  .scoreboard__score{
+    font-size: 1em;
+  }
+
+  .scoreboard__controls{
+    display: flex;
+  }
+
+  .scoreboard__controls-button{
+    flex-grow: 1;
+    border: #eee;
+    cursor: pointer;
+    font-size: 1.2em;
+  }
+
+  
+  .scoreboard__controls-button:hover{
+    background: #ddd;
+  }
+  
+  .scoreboard__controls-button:hover{
+    background: #ccc;
+    
+  }
+
 }
