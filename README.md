@@ -5,7 +5,6 @@
  - Πίνακες SQL 
      Number | Symbol | Player
      --- | --- | ---
-     *Still* | `renders` | **nicely**
      1 | 2 | 3
      2 | 4 | 5
    
