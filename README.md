@@ -4,7 +4,7 @@
 
  - Πίνακες SQL 
 
-  Markdown | Less | Pretty
+  Number | Symbol | Player
    --- | --- | ---
    *Still* | `renders` | **nicely**
    1 | 2 | 3
