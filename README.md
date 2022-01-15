@@ -7,7 +7,15 @@
   Number | Symbol | Player
    --- | --- | ---
    *Still* | `renders` | **nicely**
-   1 | 2 | 3
+    10 | H
+11 | S
+4 | S
+8 |  S
+3 | D
+4 | D
+3 | S
+8 | D
+10 | D
  
  * Περιγραφή API 
 
