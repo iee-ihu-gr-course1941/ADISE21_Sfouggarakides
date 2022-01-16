@@ -156,6 +156,7 @@ function update_Bot_info(){
 				icon: "error",
 				confirmButtonColor: '#25a342',
 				confirmButtonText: "Bye :)",
+				background: '#fff url(images/thumbsDown.png) no-repeat center',
 			  }).then(() => {
 				reset_game();
 			  });
@@ -280,7 +281,6 @@ function update_info(){
 		clearTimeout(timeout);
 		reset_game();
 
-
 	}
 	if (game_status.status == "ended"){
 		if (game_status.p_turn == me.player){
@@ -291,6 +291,7 @@ function update_info(){
 				icon: "success",
 				confirmButtonColor: '#25a342',
 				confirmButtonText: "Bye :)",
+				background: '#fff url(images/confetti.png) no-repeat center',
 			  }).then(() => {
 				reset_game();
 			  });
@@ -302,6 +303,7 @@ function update_info(){
 				icon: "error",
 				confirmButtonColor: '#25a342',
 				confirmButtonText: "Bye!",
+				background: '#fff url(images/thumbsDown.png) no-repeat center',
 			  }).then(() => {
 				reset_game();
 			  });
