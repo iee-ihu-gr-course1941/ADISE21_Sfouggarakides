@@ -28,7 +28,7 @@ function getCard(e){
 		var card = OpCads[e.id];
 		var a = card.trim().split(/[_]+/);
 		swal.fire({
-			title: "You picked: </br><img class='pickedcard' src='./images/"+card+".png'>",
+			title: "<h5 style='color:rgb(141 173 255);font-weight:bolder;font-family: monospace'>You picked: </br><img class='pickedcard' src='./images/"+card+".png'></h5>",
 			color:'#8dadff',
 			confirmButtonColor: '#8dadff',
   			confirmButtonText: 'Close',
@@ -257,6 +257,7 @@ function error_msg(data,y,z,c){
             showConfirmButton: false,
             showDenyButton: true,
             denyButtonText: `Try again!`,
+			background: 'lightsteelblue',
         }).then((result) => {
             var myTurn = $('#turn').val();
             var us = $('#username').val();

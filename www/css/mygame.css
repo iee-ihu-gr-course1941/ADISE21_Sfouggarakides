@@ -32,12 +32,14 @@ top: 200px; */
 
 #game_info{
   position: fixed;
-  width: 100%;
+  width: 20%;
   top: 85%;
+  right: 40%;
   text-align: center;
   font-size: larger;
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   color: #05386B;
+  background-color: #00fca770;
 }
 
 .opCard:hover {
@@ -198,8 +200,8 @@ IMG.card {
   
 }
 
-#placeholder{
-  color: rgb(11, 10, 75);
+::placeholder{
+  color: rgba(255, 255, 255, 0.568);
   text-decoration: underline;
 }
 
