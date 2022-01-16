@@ -60,6 +60,10 @@ top: 200px; */
 
 }
 
+#game_initializer{
+  height:100%;
+}
+
 #Sfou{
   text-align: center;
   width: 650px;
@@ -70,9 +74,9 @@ top: 200px; */
   margin: -325px 0 0 -325px;
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-weight:normal;
-  color: aquamarine;
-  background-color: rgb(102, 62, 62);
-  border: 4px solid cadetblue;
+  color: rgb(255, 255, 255);
+  background-color: rgba(97, 11, 11, 0.61);
+  border: 4px solid rgb(0, 0, 0);
 }
 
 .title{
@@ -84,60 +88,47 @@ top: 200px; */
 }
 
 .pl{
-  border: 2px solid rgb(26, 77, 48);
+  border: 2px solid rgb(0, 0, 0);
   font-weight: bolder;
   font-size: xx-large;
   font-family: Arial, Helvetica, sans-serif;
   margin: 90px;
-  color:rgb(26, 77, 48);
-  background-size: 9px 9px;
-  background-image: repeating-linear-gradient(45deg, #809e7ab0 0, #809e7a9a 0.9px, #b0baa3a4 0, #b0baa3a2 50%);
+  color:black;
+  background: #fdf5e4;
+  opacity: 0.93;
+
 }
 
-#pvp{
+ .btn-primary{
+  
+ 
+  
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   font-size: larger;
   font-weight: bolder;
-  background: rgba(51, 170, 51, 0.575);
-  border: none;
-}
-#pvp:hover{
-  background-color: rgba(51, 170, 51, 0.575);
-  color: rgb(26, 77, 48);
-  transition-duration: 1s;
-  border: 4px solid rgb(26, 77, 48);
+  background: #fdf5e4;
+  color: black;
+  border-color: black;
+  
+ }
+
+.btn-primary:hover{
+  color: #fdf5e4;
+  background: black;
+  cursor: pointer;
 }
 
-#pva{
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-  font-size: larger;
-  font-weight: bolder;
-  background: rgba(51, 170, 51, 0.575);
-  border: none;
-}
-#pva:hover{
-  background-color: rgba(51, 170, 51, 0.575);
-  color: rgb(26, 77, 48);
-  transition-duration: 1s;
-  border: 4px solid rgb(26, 77, 48);
-}
+
+
+
 
 #Game_reset{
   position: fixed;
   bottom: 5px;
   left: 5px;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-  font-size: larger;
-  font-weight: bolder;
-  background: rgba(51, 170, 51, 0.575);
-  border: none;
+  
 }
-#Game_reset:hover{
-  transition-duration: 1s;
-  background-color: rgba(104, 113, 192, 0.575);
-  color: rgb(11, 10, 75);
-  border: 4px solid rgb(13, 17, 78);
-}
+
 
 #copy {
   float :bottom;
@@ -177,28 +168,23 @@ IMG.card {
  background-size: cover;
 }
 
-#login:hover{
-  background-color: rgba(104, 113, 192, 0.575);
-  color: rgb(11, 10, 75);
-  transition-duration: 1s;
-  border: 4px solid rgb(13, 17, 78);
+
+.scoreboard{
+  display: none;
 }
 
 #login{
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-  font-size: larger;
-  font-weight: bolder;
-  background: rgba(51, 170, 51, 0.575);
-  border: none;
+  
   margin:100px 0px 0px 0px;
 }
 
 #information{
   margin:0px 70px 0px 70px;
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  color: aquamarine;
-  background-color: rgba(102, 62, 62, 0.445);
-  border: 4px solid cadetblue;
+  color:black;
+  background: transparent;
+  
+
 }
 
 #username{
@@ -206,9 +192,10 @@ IMG.card {
   font-size: larger;
   font-family:Arial, Helvetica, sans-serif;
   font-weight: bold;
-  background-color: rgba(102, 62, 62, 0.829);
-  color: rgb(11, 10, 75);
-  border: 2px solid rgb(13, 17, 78);
+  background-color: rgb(102, 62, 62);
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(0, 0, 0);
+  
 }
 
 #placeholder{
@@ -217,15 +204,15 @@ IMG.card {
 }
 
 #position{
-font-size: x-large;
+font-size: 100%;
 font-weight: bolder;
 font-family:'Courier New', Courier, monospace;
 width:150px ;
 margin:0px 0px 0px 40px;
-text-decoration:underline;
+
 background-color: rgba(102, 62, 62, 0.829);
-color: rgb(11, 10, 75);
-border: 2px solid rgb(13, 17, 78);
+color: rgb(255, 255, 255);
+border: 2px solid rgb(0, 0, 0);
 }
 
 #turn{
@@ -233,8 +220,8 @@ border: 2px solid rgb(13, 17, 78);
   margin:20px;
   font-weight: bold;
   background-color: rgba(102, 62, 62, 0.829);
-  color: rgb(11, 10, 75);
-  border: 2px solid rgb(13, 17, 78);
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(0, 0, 0);
 }
 
 @media only screen and (min-width: 500px)  {
@@ -247,58 +234,7 @@ border: 2px solid rgb(13, 17, 78);
     color: #A9A9A9;   
   }
 
-  .scoreboard{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    width: 250px;
-    font-family: 'Quicksand',sans-serif;
-  }
-
-  .scoreboard__name,
-  .scoreboard__score{
-    padding: 10px;
-    text-align: center;
-  }
-
-  .scoreboard__name{
-    font-weight: bold;
-    border-bottom: 1px solid #ddd;
-
-  }
-
-  .scoreboard__name--one{
-    color: #009578;
-
-  }
-  
-  .scoreboard__name--two{
-    color: #2d0095;
-    
-  }
-
-  .scoreboard__score{
-    font-size: 1em;
-  }
-
-  .scoreboard__controls{
-    display: flex;
-  }
-
-  .scoreboard__controls-button{
-    flex-grow: 1;
-    border: #eee;
-    cursor: pointer;
-    font-size: 1.2em;
-  }
-
-  
-  .scoreboard__controls-button:hover{
-    background: #ddd;
-  }
-  
-  .scoreboard__controls-button:hover{
-    background: #ccc;
-    
-  }
 
 }
+  
+
