@@ -19,6 +19,7 @@
 
 ## Η βάση δεδομένων
  ### Cards
+ Ο πίνακας αφού μοιραστούν οι κάρτες και έχει γίνει drop διπλών φύλλων
  | Attribute | Description | DataType 
  | --- | --- | ---
  | `Number` | Αριθμός Κάρτας | TINYINT
@@ -26,6 +27,7 @@
  | `Player` | Σε ποιόν παίκτη ανήκει η καρτα | VARCHAR
  
   ### Cards Empty (Κενός Πίνακας)
+  Κένος πίνακας με τις αρχικές κάρτες
  | Attribute | Description | DataType 
  | --- | --- | ---
  | `Number` | Αριθμός Κάρτας | TINYINT
@@ -33,6 +35,7 @@
  | `Player` | Σε ποιόν παίκτη ανήκει η καρτα | NULL
 
   ### Status
+  Το status του παιχνιδιού ( ποιος παίζει)
   | Attribute | Description | DataType 
   | --- | --- | ---
   | `status` | Κατάσταση παιχνιδιού | ENUM
@@ -41,6 +44,7 @@
   | `last_change` | Πότε έγινε η τελευταία αλλαγή | TIMESTAMP
 
  ### Players
+ Περιέχει τους παίκτες και την θέση τους
   | Attribute | Description | DataType 
   | --- | --- | ---
   | `username` | Το όνομα του κάθε χρήστη | VARCHAR
