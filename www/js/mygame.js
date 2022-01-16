@@ -137,7 +137,7 @@ function update_Bot_info(){
 	if (game_status.status == "ended"){
 		if (game_status.p_turn == me.player){
 			swal.fire({
-				title: "You Won!",
+				title: "<h5 style='color:#056b05;font-weight:bolder;font-family: monospace'> You Won! </h5>",
 				text: "Congratulations "+me.username+"!",
 				icon: "success",
 				confirmButtonColor: '#25a342',
@@ -151,7 +151,7 @@ function update_Bot_info(){
 			// alert('You Lost, better luck next time !!!!');	
 			
 			swal.fire({
-				title: "You Lost",
+				title: "<h5 style='color:#46e96c;font-weight:bolder;font-family: monospace'> You Lost! </h5>",
 				text: "Its Ok. Maybe another time "+me.username+".",
 				icon: "error",
 				confirmButtonColor: '#25a342',
@@ -286,7 +286,7 @@ function update_info(){
 		if (game_status.p_turn == me.player){
 			// alert('You are the Winner!!!');
 			swal.fire({
-				title: "You Won!",
+				title: "<h5 style='color:#056b05;font-weight:bolder;font-family: monospace'> You Won! </h5>",
 				text: "Congratulations "+me.username+"!",
 				icon: "success",
 				confirmButtonColor: '#25a342',
@@ -298,7 +298,7 @@ function update_info(){
 		}else{
 			// alert('You Lost, better luck next time !!!!');
 			swal.fire({
-				title: "You Lost",
+				title: "<h5 style='color:#46e96c;font-weight:bolder;font-family: monospace'> You Lost! </h5>",
 				text: "Its Ok. Maybe another time "+me.username+".",
 				icon: "error",
 				confirmButtonColor: '#25a342',
