@@ -162,9 +162,7 @@ function update_Bot_info(){
 			  });
 		}
 		clearTimeout(timeout);
-		
 	}
-	
 }
 
 function botRandomCard(c){
@@ -178,7 +176,6 @@ function botRandomCard(c){
 		data: JSON.stringify( {p: b}),
 		headers: {"X-Token": me.token},
 		success: botdraw});
-
 }
 function botdraw(data){
 	update_Bot_info();
@@ -186,11 +183,9 @@ function botdraw(data){
 
 //end
 
-
 function Start_game(){
 	$.ajax({url: "Moutzourhs.php/cards/", method: 'get', success: update_cards });
 }
-
 
 function update_cards(data) {
 	var myN = 0;
@@ -202,8 +197,6 @@ function update_cards(data) {
 
 	var op = '<table id="Op">';
 	op += '<tr>';
-
-
 
 	for(var i=0; i<data.length;i++) {
 		var o = data[i];
@@ -231,9 +224,7 @@ function update_cards(data) {
 	op+= m;
 
 	$('#Game_board').html(op);	
-
 }
-
 
 function game_status_update() {
 	$.ajax({url: "Moutzourhs.php/status/", success: update_status,headers: {"X-Token": me.token} });
@@ -246,7 +237,6 @@ function update_status(data) {
 	timeout = setTimeout(function() { game_status_update();}, 1000);
 	
 	update_info();
-
 }
 
 function error_msg(data,y,z,c){
@@ -314,8 +304,6 @@ function update_info(){
 	}
 	
 }
-
-
 
 function reset_game(){
 	$.ajax({url: "Moutzourhs.php/cards/", headers: {"X-Token": me.token}, method: 'POST',  success: hide_cards });

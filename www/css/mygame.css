@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   font-family: Monaco;
- }
+}
 
 .pickedcard{
   width:4em; 
@@ -59,7 +59,6 @@ top: 200px; */
   top: 50%;
   left: 50%;
   margin: -200px 0 0 -175px;
-
 }
 
 #game_initializer{
@@ -98,20 +97,15 @@ top: 200px; */
   color:black;
   background: #fdf5e4;
   opacity: 0.93;
-
 }
 
  .btn-primary{
-  
- 
-  
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   font-size: larger;
   font-weight: bolder;
   background: #fdf5e4;
   color: black;
   border-color: black;
-  
  }
 
 .btn-primary:hover{
@@ -120,17 +114,11 @@ top: 200px; */
   cursor: pointer;
 }
 
-
-
-
-
 #Game_reset{
   position: fixed;
   bottom: 5px;
   left: 5px;
-  
 }
-
 
 #copy {
   float :bottom;
@@ -170,7 +158,6 @@ IMG.card {
  background-size: cover;
 }
 
-
 .scoreboard{
   display: none;
 }
@@ -185,8 +172,6 @@ IMG.card {
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   color:black;
   background: transparent;
-  
-
 }
 
 #username{
@@ -197,7 +182,6 @@ IMG.card {
   background-color: rgb(102, 62, 62);
   color: rgb(255, 255, 255);
   border: 2px solid rgb(0, 0, 0);
-  
 }
 
 ::placeholder{
@@ -211,7 +195,6 @@ font-weight: bolder;
 font-family:'Courier New', Courier, monospace;
 width:150px ;
 margin:0px 0px 0px 40px;
-
 background-color: rgba(102, 62, 62, 0.829);
 color: rgb(255, 255, 255);
 border: 2px solid rgb(0, 0, 0);
@@ -235,8 +218,6 @@ border: 2px solid rgb(0, 0, 0);
     margin: 0 auto; 
     color: #A9A9A9;   
   }
-
-
 }
   
 
