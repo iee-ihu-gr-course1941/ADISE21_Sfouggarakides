@@ -26,25 +26,18 @@
 ## Περιγραφή Api
 ### cards 
 * handle_board($method,$input);
-
-  ```
-  Get method Αρχικοποιεί τις κάρτες της τραπουλας σε πινακα
-  Post  method κάνει reset τους πινακες στην βάση
-  ```
-
+  > Get method Αρχικοποιεί τις κάρτες της τραπουλας σε πινακα
+  > Post  method κάνει reset τους πινακες στην βάση
+  
 ### cards/draw/
 * handle_draw($method, $request[0],$request[1],$input);
-   ```
-   τρέχει την call procedure για να διαλέξει ο χρήστης κάρτα
-   ```
+  > τρέχει την call procedure για να διαλέξει ο χρήστης κάρτα
 ### status
 * handle_status($method)
-   ```
-   εμφανίζει το status του παιχνιδού
-   ```
+  > εμφανίζει το status του παιχνιδού
 ### players
 * handle_player($method, $request,$input)
-    > προσθέτει τον χρήστη στην βάση 
+  > προσθέτει τον χρήστη στην βάση 
    
 ## Η βάση δεδομένων
  ### Cards
