@@ -27,8 +27,10 @@
 ### cards 
 * handle_board($method,$input);
 
-Get method Αρχικοποιεί τις κάρτες της τραπουλας σε πινακα
-Post  method κάνει reset τους πινακες στην βάση
+  ```
+  Get method Αρχικοποιεί τις κάρτες της τραπουλας σε πινακα
+  Post  method κάνει reset τους πινακες στην βάση
+  ```
 
 ### cards/draw/
 * handle_draw($method, $request[0],$request[1],$input);
